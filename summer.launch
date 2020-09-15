@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find yumipy_service_bridge)/launch/main.launch"/>
+    <node name="robot_to_cam" pkg="tf" type="static_transform_publisher" args="0.36605488 -0.03194282  0.54544781, 0.70819836  0.00903295 -0.70595376 -0.00166536 base_link camera_link 100"/>
+    <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
+        <arg name="depth_width" value="1280"/>
+        <arg name="depth_height" value="720"/>
+        <arg name="infra_width" value="1280"/>
+        <arg name="infra_height" value="720"/>
+        <arg name="color_width" value="1280"/>
+        <arg name="color_height" value="720"/>
+    </include>
+</launch>
